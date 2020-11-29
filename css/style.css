@@ -12,6 +12,7 @@ header {
 
 nav {
     height: 15%;
+    position: relative;
     background: black;
     display: flex;
     justify-content: space-between;
@@ -191,5 +192,13 @@ a.dropdown-item:hover {
 .tbody-light{
     background-color: #d6d6d6;
     color: black;
+
+}
+
+.fixed-top{
+    height: 40px;
+}
+article{
+    height: 700px;
 
 }

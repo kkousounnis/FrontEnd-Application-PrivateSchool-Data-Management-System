@@ -1,10 +1,11 @@
-var course = {
-    titlename,
-    stream,
-    type,
-    startdate,
-    enddate    
+function course (titlename, stream, type, startdate, enddate)  {
+    this.titlename = titlename;
+    this.stream = stream;
+    this.type = type,
+    this.startdate = startdate,
+    this.enddate = enddate   
 }
+arrcourse = new Array();
 
 function validateForm() {
     let titlename = document.getElementById("titlename").value; 
@@ -21,14 +22,11 @@ function validateForm() {
         return false;
     }
     
-    course.titlename = titlename;
-    course.stream = stream;
-    course.type = type;
-    course.startdate = startdate;
-    course.enddate = enddate;
-     this.addHtmlTable(course);
     
+     
+    this.addHtmlTable(new course(titlename, stream, type, startdate, enddate));
     
+    arrcourse.push(new course(titlename, stream, type, startdate, enddate));
 }
 
 function addHtmlTable(course) {
@@ -40,10 +38,15 @@ function addHtmlTable(course) {
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
     var cell5 = row.insertCell(4);
-    cell1.innerHTML = course.titlename.value;
-    cell2.innerHTML = course.stream.value;
-    cell3.innerHTML = course.type.value;
-    cell4.innerHTML = course.startdate.value;
-    cell5.innerHTML = course.enddate.value;
+    cell1.innerHTML = course.titlename;
+    cell2.innerHTML = course.stream;
+    cell3.innerHTML = course.type;
+    cell4.innerHTML = course.startdate;
+    cell5.innerHTML = course.enddate;
     
-  }
+}
+
+function showarray(course){
+    console.log(arrcourse[0].titlename);
+
+}
