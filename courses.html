@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+      <!-- Brand -->
+      <a class="navbar-brand" href="index.html">Private School </a>
+
+      <!-- Links -->
+      <ul class="navbar-nav ">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="collapse" data-toggle="dropdown">
+            Menu
+          </a>
+          <div class="dropdown-menu  bg-secondary">
+            <a class="dropdown-item" href="courses.html">Courses</a>
+            <a class="dropdown-item" href="trainer.html">Trainers</a>
+            <a class="dropdown-item" href="student.html">Students</a>
+            <a class="dropdown-item" href="assignment.html">Assignments</a>
+          </div>
+        </li>
+
+      </ul>
+      <form class="navbar-nav nav-item ml-auto">
+        <a class="nav-link" href="#">Contact</a>
+      </form>
+    </nav>
+
+  </header>
+  <main role="main">
+
+    <section class="jumbotron text-center text-white">
+      <div class="container">
+        <h2>Add Courses</h2>
+        <form name="myForm" >
+          <div class="form-group">
+            <label for="titlename">Titlename</label>
+            <input type="text" class="form-control" id="titlename" placeholder="Title Name" name="tname" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="stream"></label>Stream</label>
+            <input type="text" class="form-control" id="stream" placeholder="Stream" name="stream" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="stream"></label>Type</label>
+            <input type="text" class="form-control" id="type" placeholder="Type" name="type" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="startdate"></label>StartDate</label>
+            <input type="date" class="form-control" id="startdate" placeholder="StartDate" name="startdate" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="endDate"></label>EndDate</label>
+            <input type="date" class="form-control" id="enddate" placeholder="EndDate" name="enddate" autocomplete="off">
+          </div>
+          
+        </form>
+        <button type="submit" onclick="validateForm()" class="btn btn-primary">Add Course</button> 
+      </div>
+      
+    </section>
+
+
+  </main>
+
+  <section>
+
+    <article>
+      <table class="table" >
+        <thead class="thead-dark">
+          <tr>            
+            <th scope="col">TitleName</th>
+            <th scope="col">Stream</th>
+            <th scope="col">Type</th>
+            <th scope="col">StartDate</th>
+            <th scope="col">EndDate</th>
+          </tr>
+        </thead>
+        <tbody class="tbody-light" id="myTable">
+          <tr>            
+            <td id="t1">Course1</td>
+            <td id="t2">Javascript</td>
+            <td id="t3">Fulltime</td>
+            <td id="t4">01/01/2021</td>
+            <td id="t5">01/03/2021</td>
+          </tr>          
+        </tbody>
+      </table>
+    </article>
+
+  </section>
+
+
+  <footer class="footer">
+
+    <p>Copyright &copy; Privvate School Data Management System 2020</p>
+
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
