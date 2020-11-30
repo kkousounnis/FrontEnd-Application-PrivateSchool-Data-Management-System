@@ -2,8 +2,8 @@ function course(titlename, stream, type, startdate, enddate) {
     this.titlename = titlename;
     this.stream = stream;
     this.type = type,
-    this.startdate = startdate,
-    this.enddate = enddate
+        this.startdate = startdate,
+        this.enddate = enddate
 }
 
 
@@ -69,7 +69,7 @@ function updatevalues() {
     if (course.titlename == "") {
         alert("Title must be filled out.");
         bool = true;
-        return false;        
+        return false;
     }
     if (course.stream == "") {
         alert("Stream must be filled out.");
@@ -89,7 +89,7 @@ function updatevalues() {
     if (bool == true) {
         this.addHtmlTable(new course(titlename, stream, type, startdate, enddate));
         document.getElementById("myTable").deleteRow(updaterow);
-    }   
+    }
 }
 
 $(document).ready(function () {
@@ -107,11 +107,12 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $("#collapse").on("mouseover", function () {
-        $(".dropdown-menu").show(1000);
+        $(".dropdown-menu").toggle(1000);
     });
-    $("#collapse").on("mouseout", function () {
+    $("section").on("mouseover", function () {
         $(".dropdown-menu").hide(1000);
     });
+
 });
 
 
