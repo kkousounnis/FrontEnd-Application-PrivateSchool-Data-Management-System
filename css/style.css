@@ -61,6 +61,11 @@ a.dropdown-item:hover {
     background-color: rgb(36, 35, 35);
 }
 
+#menuheadline{
+    color: lightgrey;
+    text-align: center;
+}
+
 .footer {
     position: fixed;
     left: 0;
