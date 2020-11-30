@@ -200,5 +200,8 @@ a.dropdown-item:hover {
 }
 article{
     height: 700px;
-
+}
+#containerupdatecourses{
+    display: none;
+    width:1400px
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>Private School</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -13,13 +13,13 @@
 
     <header>
         <nav class="navbar navbar-expand-sm bg-secondary fixed-top navbar-dark">
-            <!-- Brand -->
+
             <a class="navbar-brand" href="index.html">Private School </a>
 
             <!-- Links -->
             <ul class="navbar-nav ">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="#">Home</a>
                 </li>
 
 
@@ -28,8 +28,8 @@
                     <a class="nav-link dropdown-toggle" href="#" id="collapse" data-toggle="dropdown">
                         Menu
                     </a>
-                    <div class="dropdown-menu  bg-secondary">
-                        <a class="dropdown-item" href="courses.html">Courses</a>
+                    <div class="dropdown-menu  bg-secondary" >
+                        <a class="dropdown-item" href="#courses">Courses</a>
                         <a class="dropdown-item" href="trainer.html">Trainers</a>
                         <a class="dropdown-item" href="student.html">Students</a>
                         <a class="dropdown-item" href="assignment.html">Assignments</a>
@@ -43,24 +43,24 @@
         </nav>
 
     </header>
-    <main role="main">
-
-        <section class="jumbotron text-center">
-            <div class="container">
-                <h1 class="jumbotron-heading text-white">Private School</h1>
-                <p class="lead text-white">This is your school where every
-                    dream becomes a reality.</p>
-                <p>
-                    <a href="courses.html" class="btn btn-primary my-2">Courses</a>
-                    <a href="trainer.html" class="btn btn-primary my-2">Trainers</a>
-                    <a href="student.html" class="btn btn-primary my-2">Students</a>
-                    <a href="assignment.html" class="btn btn-primary my-2">Assignments</a>
-                </p>
-            </div>
-        </section>
 
 
-    </main>
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading text-white">Private School</h1>
+            <p class="lead text-white">This is your school where every
+                dream becomes a reality.</p>
+            <p>
+                <a href="#courses" class="btn btn-primary my-2">Courses</a>
+                <a href="trainer.html" class="btn btn-primary my-2">Trainers</a>
+                <a href="student.html" class="btn btn-primary my-2">Students</a>
+                <a href="assignment.html" class="btn btn-primary my-2">Assignments</a>
+            </p>
+        </div>
+    </section>
+
+
+
 
     <section>
 
@@ -72,7 +72,7 @@
                     <div class="post-module">
                         <!-- Thumbnail-->
                         <div class="thumbnail">
-                            <img src="pictures/article1.jpeg" />
+                            <img alt="articl1 photo" src="pictures/article1.jpeg" />
                         </div>
                         <!-- Post Content-->
                         <div class="post-content">
@@ -90,7 +90,7 @@
                     <div class="post-module">
                         <!-- Thumbnail-->
                         <div class="thumbnail">
-                            <img src="pictures/article2.jpg" />
+                            <img alt="articl2 photo" src="pictures/article2.jpg" />
                         </div>
                         <!-- Post Content-->
                         <div class="post-content">
@@ -106,47 +106,44 @@
         </article>
 
     </section>
-    <main role="main">
 
-        <section class="jumbotron text-center text-white">
-            <div class="container">
-                <h2>Add Courses</h2>
-                <form name="myForm">
-                    <div class="form-group">
-                        <label for="titlename">Titlename</label>
-                        <input type="text" class="form-control" id="titlename" placeholder="Title Name" name="tname"
-                            autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <label for="stream"></label>Stream</label>
-                        <input type="text" class="form-control" id="stream" placeholder="Stream" name="stream"
-                            autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <label for="stream"></label>Type</label>
-                        <input type="text" class="form-control" id="type" placeholder="Type" name="type"
-                            autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <label for="startdate"></label>StartDate</label>
-                        <input type="date" class="form-control" id="startdate" placeholder="StartDate" name="startdate"
-                            autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <label for="endDate"></label>EndDate</label>
-                        <input type="date" class="form-control" id="enddate" placeholder="EndDate" name="enddate"
-                            autocomplete="off">
-                    </div>
+    <section id="courses" class="jumbotron text-center text-white">
+        <div class="container">
+            <h2>Add Courses</h2>
+            <form name="myForm">
+                <div class="form-group">
+                    <label for="titlename">Titlename</label>
+                    <input type="text" class="form-control" id="titlename" placeholder="Title Name" name="tname"
+                        autocomplete="off">
+                </div>
+                <div class="form-group">
 
-                </form>
-                <button type="submit" onclick="validateForm()" class="btn btn-primary">Add Course</button>
-                <button type="submit" onclick="showarray()" class="btn btn-primary">Show Course</button>
-            </div>
+                    <input type="text" class="form-control" id="stream" placeholder="Stream" name="stream" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <!-- <input type="text" class="form-control" id="type" placeholder="Type" name="type" autocomplete="off"> -->
+                    <select  class="form-control" id="type">
+                        <option id="show">Fulltime</option>
+                        <option >Parttime</option>                        
+                    </select>
+                </div>
+                <div class="form-group">
 
-        </section>
+                    <input type="date" class="form-control" id="startdate" name="startdate" autocomplete="off">
+                </div>
+                <div class="form-group">
+
+                    <input type="date" class="form-control" id="enddate" name="enddate" autocomplete="off">
+                </div>
+
+            </form>
+            <button type="submit" onclick="validateForm()" class="btn btn-primary">Add Course</button>
+        </div>
+
+    </section>
 
 
-    </main>
+
 
     <section>
 
@@ -171,6 +168,40 @@
                     </tr>
                 </tbody>
             </table>
+            <button type="submit" id="appearupdate" class="btn btn-primary">Edit</button>
+            <div id="containerupdatecourses">
+                <h3>Update Table</h3>
+                <div class="form-row align-items-center">
+
+                    <div class="col-auto">
+                        <input type="number" class="form-control mb-2" id="updaterow" placeholder="Specify Row">
+                    </div>
+
+                    <div class="col-auto">
+                        <input type="text" class="form-control mb-2" id="updatetitlename" placeholder="Titlename">
+                    </div>
+
+                    <div class="col-auto">
+                        <input type="text" class="form-control mb-2" id="updatestream" placeholder="Stream">
+                    </div>
+
+                    <div class="col-auto">
+                        <input type="text" class="form-control mb-2" id="updatetype" placeholder="Type">
+                    </div>
+
+                    <div class="col-auto">
+                        <input type="date" class="form-control mb-2" id="updatestartdate">
+                    </div>
+
+                    <div class="col-auto">
+                        <input type="date" class="form-control mb-2" id="updateenddate">
+                    </div>
+
+                </div>
+                <button type="submit" onclick="updatevalues()" id="disappearupdate"
+                    class="btn btn-primary">Update</button>
+            </div>
+
         </article>
 
     </section>
