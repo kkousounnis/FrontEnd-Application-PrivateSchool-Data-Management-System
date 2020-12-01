@@ -62,7 +62,7 @@
                 <h2>Assign Trainers Per Courses</h2>
                 <form name="myForm">
                     <div class="form-group">
-                        <input type="number" class="form-control" id="studentid" placeholder="Trainer Id" name="tname"
+                        <input type="number" class="form-control" id="trainerid" placeholder="Trainer Id" name="tname"
                             autocomplete="off">
                     </div>
                     <div class="form-group">
@@ -71,7 +71,7 @@
                             autocomplete="off">
                     </div>
                 </form>
-                <button type="submit" onclick="validateForm()" class="btn btn-primary">Add Trainers Per Course</button>
+                <button type="submit" onclick="validateFormTrainersPerCourses()" class="btn btn-primary">Add Trainers Per Course</button>
             </div>
             <div class="col">
                 <table class="table">
@@ -143,7 +143,7 @@
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">StudentId</th>
+                        <th scope="col">TrainerId</th>
                         <th scope="col">Firsname</th>
                         <th scope="col">Lastname</th>
                         <th scope="col">CourseId</th>
@@ -152,7 +152,7 @@
                         <th scope="col">Type</th>
                     </tr>
                 </thead>
-                <tbody class="tbody-light" id="myTable">
+                <tbody class="tbody-light" id="myTableTrainers">
                     <tr>
                         <td>1</td>
                         <td>Nikos</td>
@@ -179,7 +179,7 @@
                     </div>
 
                     <div class="col-auto">
-                        <input type="number" class="form-control mb-2" id="updatestudentid" placeholder="StudentId">
+                        <input type="number" class="form-control mb-2" id="updatetrainerid" placeholder="TrainerId">
                     </div>
 
                 </div>
