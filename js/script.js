@@ -2,8 +2,8 @@ function course(titlename, stream, type, startdate, enddate) {
     this.titlename = titlename;
     this.stream = stream;
     this.type = type,
-    this.startdate = startdate,
-    this.enddate = enddate
+        this.startdate = startdate,
+        this.enddate = enddate
 }
 
 
@@ -195,10 +195,40 @@ function updatevaluesstudent() {
 
     if (bool == true) {
         document.getElementById("mytablestudents").deleteRow(updaterowstudent);
-        this.addHtmlTableStudent(firstname1, lastname1, dateofbirth1, tuitionfees1);        
+        this.addHtmlTableStudent(firstname1, lastname1, dateofbirth1, tuitionfees1);
     }
 
 }
 
+// ------------------------------- Trainers-------------------
+
+$(document).ready(function () {
+    $("#appearupdatetrainers").click(function () {
+        $("#containerupdatetrainers").toggle(1000);
+        $("#appearupdatetrainers").toggle(1000);
+    });
+});
+$(document).ready(function () {
+    $("#disappearupdatetrainers").click(function () {
+        $("#containerupdatetrainers").toggle(1000);
+        $("#appearupdatetrainers").toggle(1000);
+    });
+});
+
+
+// ------------------------------- Assignments-------------------
+
+$(document).ready(function () {
+    $("#appearupdateassignments").click(function () {
+        $("#containerupdateassignments").toggle(1000);
+        $("#appearupdateassignments").toggle(1000);
+    });
+});
+$(document).ready(function () {
+    $("#disappearupdateassignments").click(function () {
+        $("#containerupdateassignments").toggle(1000);
+        $("#appearupdateassignments").toggle(1000);
+    });
+});
 
 
