@@ -2,8 +2,8 @@ function course(titlename, stream, type, startdate, enddate) {
     this.titlename = titlename;
     this.stream = stream;
     this.type = type,
-        this.startdate = startdate,
-        this.enddate = enddate
+    this.startdate = startdate,
+    this.enddate = enddate
 }
 
 
@@ -49,6 +49,7 @@ function addHtmlTable(course) {
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
     var cell5 = row.insertCell(4);
+    console.log(course.titlename);
     cell1.innerHTML = course.titlename;
     cell2.innerHTML = course.stream;
     cell3.innerHTML = course.type;
@@ -59,12 +60,13 @@ function addHtmlTable(course) {
 
 function updatevalues() {
     let updaterow = document.getElementById("updaterow").value;
-    console.log(updaterow);
-    course.titlename = document.getElementById("updatetitlename").value;
-    course.stream = document.getElementById("updatestream").value;
-    course.type = document.getElementById("updatetype").value;
-    course.startdate = document.getElementById("updatestartdate").value;
-    course.enddate = document.getElementById("updateenddate").value;
+    let updatetitlename = document.getElementById("updatetitlename").value;
+    let updatestream = document.getElementById("updatestream").value;
+    let updatetype = document.getElementById("updatetype").value;
+    let updatestartdate = document.getElementById("updatestartdate").value;
+    let updateenddate = document.getElementById("updateenddate").value;
+
+
     let bool = true;
     if (course.titlename == "") {
         alert("Title must be filled out.");
@@ -75,21 +77,22 @@ function updatevalues() {
         alert("Stream must be filled out.");
         bool = false;
         return false;
-
     }
 
     if (course.type == "") {
         bool = false;
         alert("Type must be filled out.")
     }
-    if (startdate >= enddate) {
+    if ((course.startdate >= course.enddate) == true) {
         bool = false;
         alert("Enddate must come after startdate.")
     }
     if (bool == true) {
-        this.addHtmlTable(new course(titlename, stream, type, startdate, enddate));
         document.getElementById("myTable").deleteRow(updaterow);
+        this.addHtmlTable(new course(updatetitlename, updatestream, updatetype, updatestartdate, updateenddate));
+
     }
+
 }
 
 $(document).ready(function () {
@@ -114,5 +117,88 @@ $(document).ready(function () {
     });
 
 });
+
+// ------------------------------- Students-------------------
+
+$(document).ready(function () {
+    $("#appearupdatetrainer").click(function () {
+        $("#containerupdatetrainers").toggle(1000);
+        $("#appearupdatetrainer").toggle(1000);
+    });
+});
+$(document).ready(function () {
+    $("#disappearupdatetrainers").click(function () {
+        $("#containerupdatetrainers").toggle(1000);
+        $("#appearupdatetrainer").toggle(1000);
+    });
+});
+
+
+
+function validateFormstudents() {
+    let firstname = document.getElementById("firstname").value;
+    let lastname = document.getElementById("lastname").value;
+    let dateofbirth = document.getElementById("dateofbirth").value;
+    let tuitionfees = document.getElementById("tuitionfees").value;
+    let bool = true;
+    if (firstname == "") {
+        alert("First name must be filled out.");
+        bool = true;
+        return false;
+    }
+    if (lastname == "") {
+        alert("Last name must be filled out.");
+        bool = false;
+        return false;
+    }
+
+
+    if (bool == true) {
+        this.addHtmlTableStudent(firstname, lastname, dateofbirth, tuitionfees);
+    }
+
+}
+
+function addHtmlTableStudent(firstname, lastname, dateofbirth, tuitionfees) {
+    var table = document.getElementById("mytablestudents");
+    console.log(firstname);
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    cell1.innerHTML = firstname;
+    cell2.innerHTML = lastname;
+    cell3.innerHTML = dateofbirth;
+    cell4.innerHTML = tuitionfees;
+}
+
+function updatevaluesstudent() {
+    let updaterowstudent = document.getElementById("updaterowstudent").value;
+
+    let firstname1 = document.getElementById("updatefirstnamestudent").value;
+    let lastname1 = document.getElementById("updatelastnamestudent").value;
+    let dateofbirth1 = document.getElementById("updatedateofbirthstudent").value;
+    let tuitionfees1 = document.getElementById("tuitionfeesstudent").value;
+    let bool = true;
+    if (firstname1 == "") {
+        alert("First name must be filled out.");
+        bool = true;
+        return false;
+    }
+    if (lastname1 == "") {
+        alert("Last name must be filled out.");
+        bool = false;
+        return false;
+    }
+
+
+    if (bool == true) {
+        document.getElementById("mytablestudents").deleteRow(updaterowstudent);
+        this.addHtmlTableStudent(firstname1, lastname1, dateofbirth1, tuitionfees1);        
+    }
+
+}
+
 
 

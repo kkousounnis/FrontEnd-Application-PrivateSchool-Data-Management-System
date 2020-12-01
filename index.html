@@ -14,7 +14,7 @@
     <header>
         <nav class="navbar navbar-expand-sm bg-secondary fixed-top navbar-dark">
 
-            <a class="navbar-brand" href="index.html">Private School </a>
+            <a class="navbar-brand" href="#">Private School </a>
 
             <!-- Links -->
             <ul class="navbar-nav ">
@@ -28,10 +28,10 @@
                     <a class="nav-link dropdown-toggle" href="#" id="collapse" data-toggle="dropdown">
                         Menu
                     </a>
-                    <div class="dropdown-menu  bg-secondary" >
+                    <div class="dropdown-menu  bg-secondary">
                         <a class="dropdown-item" href="#courses">Courses</a>
-                        <a class="dropdown-item" href="trainer.html">Trainers</a>
-                        <a class="dropdown-item" href="student.html">Students</a>
+                        <a class="dropdown-item" href="#students">Students</a>
+                        <a class="dropdown-item" href="trainer.html">Trainers</a>                        
                         <a class="dropdown-item" href="assignment.html">Assignments</a>
                     </div>
                 </li>
@@ -52,8 +52,8 @@
                 dream becomes a reality.</p>
             <p>
                 <a href="#courses" class="btn btn-primary my-2">Courses</a>
-                <a href="trainer.html" class="btn btn-primary my-2">Trainers</a>
-                <a href="student.html" class="btn btn-primary my-2">Students</a>
+                <a href="#students" class="btn btn-primary my-2">Students</a>
+                <a href="trainer.html" class="btn btn-primary my-2">Trainers</a>                
                 <a href="assignment.html" class="btn btn-primary my-2">Assignments</a>
             </p>
         </div>
@@ -111,26 +111,27 @@
         <div class="container">
             <h2>Add Courses</h2>
             <form name="myForm">
-                <div class="form-group"> 
-                    <input type="text" class="form-control" id="titlename" placeholder="Title Name" name="tname" autocomplete="off">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="titlename" placeholder="Title Name" name="tname"
+                        autocomplete="off">
                 </div>
                 <div class="form-group">
 
-                    <input type="text" class="form-control" id="stream" placeholder="Stream" name="stream" autocomplete="off">
+                    <input type="text" class="form-control" id="stream" placeholder="Stream" name="stream"
+                        autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <!-- <input type="text" class="form-control" id="type" placeholder="Type" name="type" autocomplete="off"> -->
-                    <select  class="form-control" id="type">
+                    <select class="form-control" id="type">
                         <option id="show">Fulltime</option>
-                        <option >Parttime</option>                        
+                        <option>Parttime</option>
                     </select>
                 </div>
                 <div class="form-group">
-
+                    <label>Start Date</label>
                     <input type="date" class="form-control" id="startdate" name="startdate" autocomplete="off">
                 </div>
                 <div class="form-group">
-
+                    <label>End Date</label>
                     <input type="date" class="form-control" id="enddate" name="enddate" autocomplete="off">
                 </div>
 
@@ -193,7 +194,7 @@
                         <input type="text" class="form-control mb-2" id="updatetitlename" placeholder="Titlename">
                     </div>
 
-                    <div class="col-auto">
+                    <div class="col-auto">                        
                         <input type="text" class="form-control mb-2" id="updatestream" placeholder="Stream">
                     </div>
 
@@ -211,6 +212,98 @@
 
                 </div>
                 <button type="submit" onclick="updatevalues()" id="disappearupdate"
+                    class="btn btn-primary">Update</button>
+            </div>
+
+        </article>
+
+    </section>
+
+    <section id="students" class="jumbotron text-center text-white">
+        <div class="container">
+            <h2>Add Students</h2>
+            <form name="myForm">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="firstname" placeholder="First Name" name="fname"
+                        autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="lastname" placeholder="Last name" name="lname"
+                        autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" id="dateofbirth" name="dateofbirth" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" id="tuitionfees" name="tuitionfees" autocomplete="off">
+                </div>
+
+            </form>
+            <button type="submit" onclick="validateFormstudents()" class="btn btn-primary">Add Student</button>
+        </div>
+
+    </section>
+
+    <section>
+        <h3 class="text-center">Assign Students Menu</h3>
+        <article>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Firstname</th>
+                        <th scope="col">Lastname</th>
+                        <th scope="col">DateOfBirth</th>
+                        <th scope="col">tuitionfees</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody-light" id="mytablestudents">
+                    <tr>
+                        <td>Konstantinos</td>
+                        <td>Papaspurou</td>
+                        <td>12/12/1990</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr>
+                        <td>Gewrgios</td>
+                        <td>Georgiou</td>
+                        <td>03/01/1992</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr>
+                        <td>Alexandros</td>
+                        <td>Grigoriou</td>
+                        <td>04/09/1998</td>
+                        <td>5000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit" id="appearupdatetrainer" class="btn btn-primary">Edit</button>
+            <div id="containerupdatetrainers">
+                <h3>Update Table</h3>
+                <div class="form-row align-items-center">
+
+                    <div class="col-auto">
+                        <input type="number" class="form-control mb-2" id="updaterowstudent" placeholder="Specify Row">
+                    </div>
+
+                    <div class="col-auto">
+                        <input type="text" class="form-control mb-2" id="updatefirstnamestudent" placeholder="First Name">
+                    </div>
+
+                    <div class="col-auto">
+                        <input type="text" class="form-control mb-2" id="updatelastnamestudent" placeholder="Last Name">
+                    </div>
+
+                    <div class="col-auto">
+                        <input type="date" class="form-control mb-2" id="updatedateofbirthstudent">
+                    </div>
+
+                    <div class="col-auto">
+                        <input type="number" class="form-control mb-2" id="tuitionfeesstudent" placeholder="tuitionfees">
+                    </div>
+
+                </div>
+                <button type="submit" onclick="updatevaluesstudent()" id="disappearupdatetrainers"
                     class="btn btn-primary">Update</button>
             </div>
 

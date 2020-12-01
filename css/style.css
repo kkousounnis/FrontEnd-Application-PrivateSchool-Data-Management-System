@@ -61,7 +61,7 @@ a.dropdown-item:hover {
     background-color: rgb(36, 35, 35);
 }
 
-#menuheadline{
+#menuheadline {
     color: lightgrey;
     text-align: center;
 }
@@ -190,23 +190,31 @@ a.dropdown-item:hover {
     box-sizing: border-box;
     float: left;
 }
-.text-white{
-    color:white;
 
+.text-white {
+    color: white;
 }
-.tbody-light{
+
+.tbody-light {
     background-color: #d6d6d6;
     color: black;
-
 }
 
-.fixed-top{
+.fixed-top {
     height: 40px;
 }
-article{
+
+article {
     height: 700px;
 }
-#containerupdatecourses{
+
+#containerupdatecourses {
     display: none;
-    width:1400px
+    width: 1400px
 }
+
+#containerupdatetrainers {
+    display: none;
+    width: 1400px
+}
+
