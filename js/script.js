@@ -121,15 +121,15 @@ $(document).ready(function () {
 // ------------------------------- Students-------------------
 
 $(document).ready(function () {
-    $("#appearupdatetrainer").click(function () {
-        $("#containerupdatetrainers").toggle(1000);
-        $("#appearupdatetrainer").toggle(1000);
+    $("#appearupdatestudents").click(function () {
+        $("#containerupdatestudents").toggle(1000);
+        $("#appearupdatestudents").toggle(1000);
     });
 });
 $(document).ready(function () {
-    $("#disappearupdatetrainers").click(function () {
-        $("#containerupdatetrainers").toggle(1000);
-        $("#appearupdatetrainer").toggle(1000);
+    $("#disappearupdatestudents").click(function () {
+        $("#containerupdatestudents").toggle(1000);
+        $("#appearupdatestudents").toggle(1000);
     });
 });
 

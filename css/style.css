@@ -213,7 +213,15 @@ article {
     width: 1400px
 }
 
+#containerupdatestudents {
+    display: none;
+    width: 1400px
+}
 #containerupdatetrainers {
+    display: none;
+    width: 1400px
+}
+#containerupdateassignments {
     display: none;
     width: 1400px
 }
