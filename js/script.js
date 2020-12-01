@@ -49,7 +49,7 @@ function addHtmlTable(course) {
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
     var cell5 = row.insertCell(4);
-    console.log(course.titlename);
+   
     cell1.innerHTML = course.titlename;
     cell2.innerHTML = course.stream;
     cell3.innerHTML = course.type;
@@ -161,7 +161,7 @@ function validateFormstudents() {
 
 function addHtmlTableStudent(firstname, lastname, dateofbirth, tuitionfees) {
     var table = document.getElementById("mytablestudents");
-    console.log(firstname);
+    
     var row = table.insertRow(0);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
@@ -246,7 +246,7 @@ function validateFormtrainers() {
 
 function addHtmlTabletrainers(firstnametrainer, lastnametrainer, subject) {
     var table = document.getElementById("mytabletrainers");
-    console.log(firstname);
+    
     var row = table.insertRow(0);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
@@ -326,7 +326,7 @@ function validateFormAssignments() {
 
 function addHtmlTableAssignments(title, description, subdatetime, oralmark, totalmark) {
     var table = document.getElementById("mytableassignments");
-    console.log(firstname);
+   
     var row = table.insertRow(0);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
@@ -365,5 +365,156 @@ function updatevaluesAssignments() {
         document.getElementById("mytableassignments").deleteRow(updaterowassignment);
         this.addHtmlTableAssignments(utitle, udescription, usubdatetime, uoralmark, utotalmark);
     }
+
+}
+
+// ------------------------------- StudentsPerCourse/TrainersPerCourse/AssignmentsPerCourse/AssignmentsPerStudentPerCourse-------------------
+var course1 = {
+    courseid:1,
+    titlename:"course1",
+    stream:"Javascript",
+    type:"Fulltime"
+}
+var course2 = {
+    courseid:2,
+    titlename:"course2",
+    stream:"Javascript",
+    type:"Parttime"
+}
+var course3 = {
+    courseid:3,
+    titlename:"course3",
+    stream:"Go",
+    type:"Parttime"
+}
+
+var student1 = {
+    studentid:1,
+    firstname:"Konstantinos",
+    lastname:"Kousounnis"
+}
+var student2 = {
+    studentid:2,
+    firstname:"Georgios",
+    lastname:"Georgiou"
+}
+var student3 = {
+    studentid:3,
+    firstname:"Nikolas",
+    lastname:"Xristodoulopoulos"
+}
+
+var traine1 = {
+    trainerid:1,
+    trainerfirstname:"Nikos",
+    trainerlastname:"Theodoridis"
+}
+var traine1 = {
+    trainerid:2,
+    trainerfirstname:"Alexandros",
+    trainerlastname:"Alepis"
+}
+var traine1 = {
+    trainerid:3,
+    trainerfirstname:"Giannis",
+    trainerlastname:"Theodoridis"
+}
+
+var assignment1 = {
+    assignmentid:1,
+    title:"Assignment1"
+}
+var assignment1 = {
+    assignmentid:2,
+    title:"Assignment2"
+}
+var assignment1 = {
+    assignmentid:3,
+    title:"Assignment3"
+}
+
+function validateFormStudentPerCourses() {
+    let studentid = document.getElementById("studentid").value;
+    let courseid = document.getElementById("courseid").value;
+    
+    let student;
+    let course;
+    switch(studentid){
+        case '1':
+            student=student1;
+            break;
+        case '2':
+            student=student2;
+            break;
+        case '3':
+            student=student3;
+            break;
+    }
+    switch(courseid){
+        case '1':
+            course=course1;
+            break;
+        case '2':
+            course=course2;
+            break;
+        case '3':
+            course=course3;
+            break;
+    }
+    addHtmlTableStudentsPerCourse(student,course)
+}
+
+function addHtmlTableStudentsPerCourse(student,course) {
+    var table = document.getElementById("myTableStudentsPerCourse");
+   
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
+    var cell6 = row.insertCell(5);
+    var cell7 = row.insertCell(6);
+
+    cell1.innerHTML = student.studentid;
+    cell2.innerHTML = student.firstname;
+    cell3.innerHTML = student.lastname;
+    cell4.innerHTML = course.courseid;
+    cell5.innerHTML = course.titlename;
+    cell6.innerHTML = course.stream;
+    cell7.innerHTML = course.type;
+}
+
+function updateFormStudentPerCourses() {
+    let updaterow = document.getElementById("updaterow").value;
+
+    let ucourseid = document.getElementById("updatecourseid").value;
+    let ustudentid = document.getElementById("updatestudentid").value;
+    
+    let student;
+    let course;
+    switch(ucourseid){
+        case '1':
+            student=student1;
+            break;
+        case '2':
+            student=student2;
+            break;
+        case '3':
+            student=student3;
+            break;
+    }
+    switch(ustudentid){
+        case '1':
+            course=course1;
+            break;
+        case '2':
+            course=course2;
+            break;
+        case '3':
+            course=course3;
+            break;
+    }
+    addHtmlTableStudentsPerCourse(student,course)
 
 }
