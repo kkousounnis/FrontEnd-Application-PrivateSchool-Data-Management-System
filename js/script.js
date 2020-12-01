@@ -112,7 +112,7 @@ $(document).ready(function () {
     $("#collapse").on("mouseover", function () {
         $(".dropdown-menu").toggle(1000);
     });
-    $("section").on("mouseover", function () {
+    $(".container-fluid").on("mouseover", function () {
         $(".dropdown-menu").hide(1000);
     });
 
@@ -216,6 +216,74 @@ $(document).ready(function () {
 });
 
 
+function validateFormtrainers() {
+    let firstnametrainer = document.getElementById("firstnametrainer").value;
+    let lastnametrainer = document.getElementById("lastnametrainer").value;
+    let subject = document.getElementById("subject").value;
+    let bool = true;
+    if (firstnametrainer == "") {
+        alert("First name must be filled out.");
+        bool = true;
+        return false;
+    }
+    if (lastnametrainer == "") {
+        alert("Last name must be filled out.");
+        bool = false;
+        return false;
+    }
+    if (subject == "") {
+        alert("Subject must be filled out.");
+        bool = false;
+        return false;
+    }
+
+
+    if (bool == true) {
+        this.addHtmlTabletrainers(firstnametrainer, lastnametrainer, subject);
+    }
+
+}
+
+function addHtmlTabletrainers(firstnametrainer, lastnametrainer, subject) {
+    var table = document.getElementById("mytabletrainers");
+    console.log(firstname);
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    cell1.innerHTML = firstnametrainer;
+    cell2.innerHTML = lastnametrainer;
+    cell3.innerHTML = subject;
+}
+
+function updatevaluestrainers() {
+    let updaterowtrainer = document.getElementById("updaterowtrainer").value;
+
+    let ufirstnamestudent = document.getElementById("updatefirstnametrainer").value;
+    let ulastnamestudent = document.getElementById("updatelastnametrainer").value;
+    let udateofbirthstudent = document.getElementById("updatesubjecttrainer").value;
+
+    let bool = true;
+    if (ufirstnamestudent == "") {
+        alert("First name must be filled out.");
+        bool = true;
+        return false;
+    }
+    if (ulastnamestudent == "") {
+        alert("Last name must be filled out.");
+        bool = false;
+        return false;
+    }
+
+
+    if (bool == true) {
+        document.getElementById("mytabletrainers").deleteRow(updaterowtrainer);
+        this.addHtmlTabletrainers(ufirstnamestudent, ulastnamestudent, udateofbirthstudent);
+    }
+
+}
+
+
 // ------------------------------- Assignments-------------------
 
 $(document).ready(function () {
@@ -231,4 +299,71 @@ $(document).ready(function () {
     });
 });
 
+function validateFormAssignments() {
+    let title = document.getElementById("title").value;
+    let description = document.getElementById("description").value;
+    let subdatetime = document.getElementById("subdatetime").value;
+    let oralmark = document.getElementById("oralmark").value;
+    let totalmark = document.getElementById("totalmark").value;
+    let bool = true;
+    if (firstname == "") {
+        alert("First name must be filled out.");
+        bool = true;
+        return false;
+    }
+    if (lastname == "") {
+        alert("Last name must be filled out.");
+        bool = false;
+        return false;
+    }
 
+
+    if (bool == true) {
+        this.addHtmlTableAssignments(title, description, subdatetime, oralmark, totalmark);
+    }
+
+}
+
+function addHtmlTableAssignments(title, description, subdatetime, oralmark, totalmark) {
+    var table = document.getElementById("mytableassignments");
+    console.log(firstname);
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
+    cell1.innerHTML = title;
+    cell2.innerHTML = description;
+    cell3.innerHTML = subdatetime;
+    cell4.innerHTML = oralmark;
+    cell5.innerHTML = totalmark;
+
+}
+
+function updatevaluesAssignments() {
+    let updaterowassignment = document.getElementById("updaterowassignment").value;
+
+    let utitle = document.getElementById("updatetitle").value;
+    let udescription = document.getElementById("updatedescription").value;
+    let usubdatetime = document.getElementById("updatedatesubdatetime").value;
+    let uoralmark = document.getElementById("updateoralmark").value;
+    let utotalmark = document.getElementById("updatetotalmark").value;
+    let bool = true;
+    if (utitle == "") {
+        alert("First name must be filled out.");
+        bool = true;
+        return false;
+    }
+    if (udescription == "") {
+        alert("Last name must be filled out.");
+        bool = false;
+        return false;
+    }
+
+    if (bool == true) {
+        document.getElementById("mytableassignments").deleteRow(updaterowassignment);
+        this.addHtmlTableAssignments(utitle, udescription, usubdatetime, uoralmark, utotalmark);
+    }
+
+}
