@@ -404,17 +404,17 @@ var student3 = {
     lastname:"Xristodoulopoulos"
 }
 
-var traine1 = {
+var trainer1 = {
     trainerid:1,
     trainerfirstname:"Nikos",
     trainerlastname:"Theodoridis"
 }
-var traine1 = {
+var trainer2 = {
     trainerid:2,
     trainerfirstname:"Alexandros",
     trainerlastname:"Alepis"
 }
-var traine1 = {
+var trainer3 = {
     trainerid:3,
     trainerfirstname:"Giannis",
     trainerlastname:"Theodoridis"
@@ -424,11 +424,11 @@ var assignment1 = {
     assignmentid:1,
     title:"Assignment1"
 }
-var assignment1 = {
+var assignment2 = {
     assignmentid:2,
     title:"Assignment2"
 }
-var assignment1 = {
+var assignment3 = {
     assignmentid:3,
     title:"Assignment3"
 }
@@ -553,10 +553,11 @@ function validateFormTrainersPerCourses() {
             course=course3;
             break;
     }
-    addHtmlTableStudentsPerCourse(trainer,course)
+    console.log(trainer);
+    addHtmlTableTrainersPerCourse(trainer,course)
 }
 
-function addHtmlTableTrainersPerCourse(trainer,course) {
+function addHtmlTableTrainersPerCourse(trainer, course1) {
     var table = document.getElementById("myTableTrainers");
    
     var row = table.insertRow(0);
@@ -569,12 +570,12 @@ function addHtmlTableTrainersPerCourse(trainer,course) {
     var cell7 = row.insertCell(6);
 
     cell1.innerHTML = trainer.trainerid;
-    cell2.innerHTML = trainerfirstname;
-    cell3.innerHTML = trainer.lastname;
-    cell4.innerHTML = course.courseid;
-    cell5.innerHTML = course.titlename;
-    cell6.innerHTML = course.stream;
-    cell7.innerHTML = course.type;
+    cell2.innerHTML = trainer.trainerfirstname;
+    cell3.innerHTML = trainer.trainerlastname;
+    cell4.innerHTML = course1.courseid;
+    cell5.innerHTML = course1.titlename;
+    cell6.innerHTML = course1.stream;
+    cell7.innerHTML = course1.type;
 }
 
 function updateFormTrainersPerCourse() {
@@ -608,6 +609,6 @@ function updateFormTrainersPerCourse() {
             break;
     }
     document.getElementById("myTableTrainers").deleteRow(updaterow);
-    addHtmlTableStudentsPerCourse(student,course)
+    addHtmlTableTrainersPerCourse(trainer,course)
 
 }
