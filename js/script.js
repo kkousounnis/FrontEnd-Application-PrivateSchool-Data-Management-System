@@ -439,6 +439,7 @@ function validateFormStudentPerCourses() {
 
     let student;
     let course;
+    let bool = true;
     switch (studentid) {
         case '1':
             student = student1;
@@ -448,6 +449,10 @@ function validateFormStudentPerCourses() {
             break;
         case '3':
             student = student3;
+            break;
+        default:
+            bool = false;
+            alert("You  must select from the available id's of student table.");
             break;
     }
     switch (courseid) {
@@ -460,8 +465,14 @@ function validateFormStudentPerCourses() {
         case '3':
             course = course3;
             break;
+        default:
+            bool = false;
+            alert("You  must select from the available id's of courses table.");
+            break;
     }
-    addHtmlTableStudentsPerCourse(student, course)
+    if(bool == true){ 
+        addHtmlTableStudentsPerCourse(student, course);
+    }
 }
 
 function addHtmlTableStudentsPerCourse(student, course) {
@@ -486,13 +497,22 @@ function addHtmlTableStudentsPerCourse(student, course) {
 }
 
 function updateFormStudentPerCourses() {
+    let bool = true;
     let updaterow = document.getElementById("updaterow").value;
+    updaterow = updaterow - 1;
+    var table = document.getElementById("myTableStudentsPerCourse");
+    if(updaterow>table.rows.length || updaterow<0){
+        bool = false;
+        alert("You must select a row that exists from table.");
+    }
 
     let ucourseid = document.getElementById("updatecourseid").value;
     let ustudentid = document.getElementById("updatestudentid").value;
 
     let ustudent;
     let ucourse;
+
+    
     switch (ustudentid) {
         case '1':
             ustudent = student1;
@@ -503,6 +523,11 @@ function updateFormStudentPerCourses() {
         case '3':
             ustudent = student3;
             break;
+        default:
+            bool = false;
+            alert("You  must select from the available id's of student table.");
+            break;
+
     }
     switch (ucourseid) {
         case '1':
@@ -514,12 +539,15 @@ function updateFormStudentPerCourses() {
         case '3':
             ucourse = course3;
             break;
+        default:
+            bool = false;
+            alert("You  must select from the available id's of courses table.");
+            break;
     }
-    console.log(updaterow);
-    console.log(ucourse);
-    console.log(ustudentid);
-    document.getElementById("myTableStudentsPerCourse").deleteRow(updaterow);
-    addHtmlTableStudentsPerCourse(ustudent, ucourse)
+    if(bool == true){ 
+        document.getElementById("myTableStudentsPerCourse").deleteRow(updaterow);
+        addHtmlTableStudentsPerCourse(ustudent, ucourse)
+    }
 
 }
 
@@ -531,15 +559,21 @@ function validateFormTrainersPerCourses() {
 
     let trainer;
     let course;
+
+    let bool = true;
     switch (trainerid) {
         case '1':
-            trainer = traine1;
+            trainer = trainer1;
             break;
         case '2':
             trainer = trainer2;
             break;
         case '3':
             trainer = trainer3;
+            break;
+        default:
+            bool = false;
+            alert("You  must select from the available id's of trainer table.");
             break;
     }
     switch (courseid) {
@@ -552,9 +586,14 @@ function validateFormTrainersPerCourses() {
         case '3':
             course = course3;
             break;
+        default:
+            bool = false;
+            alert("You  must select from the available id's of courses table.");
+            break;
     }
-    console.log(trainer);
-    addHtmlTableTrainersPerCourse(trainer, course)
+    if(bool == true){ 
+        addHtmlTableTrainersPerCourse(trainer, course)
+    }
 }
 
 function addHtmlTableTrainersPerCourse(trainer, course1) {
@@ -579,13 +618,23 @@ function addHtmlTableTrainersPerCourse(trainer, course1) {
 }
 
 function updateFormTrainersPerCourse() {
+    let bool = true;
     let updaterow = document.getElementById("updaterow").value;
-
+    
+    updaterow = updaterow - 1;
+    var table1 = document.getElementById("myTableTrainers");
+    
+    if(updaterow>table1.rows.length || updaterow<0){
+        bool = false;
+        alert("You must select a row that exists from table.");
+    }
     let ucourseid = document.getElementById("updatecourseid").value;
     let utrainerid = document.getElementById("updatetrainerid").value;
 
     let student;
     let course;
+    
+
     switch (ucourseid) {
         case '1':
             course = course1;
@@ -596,10 +645,14 @@ function updateFormTrainersPerCourse() {
         case '3':
             course = course3;
             break;
+        default:
+            bool = false;
+            alert("You  must select from the available id's of courses table.");
+            break;
     }
     switch (utrainerid) {
         case '1':
-            trainer = traine1;
+            trainer = trainer1;
             break;
         case '2':
             trainer = trainer2;
@@ -607,10 +660,15 @@ function updateFormTrainersPerCourse() {
         case '3':
             trainer = trainer3;
             break;
+        default:
+            bool = false;
+            alert("You  must select from the available id's of trainers table.");
+            break;
     }
-    document.getElementById("myTableTrainers").deleteRow(updaterow);
-    addHtmlTableTrainersPerCourse(trainer, course)
-
+    if(bool == true){ 
+        document.getElementById("myTableTrainers").deleteRow(updaterow);
+        addHtmlTableTrainersPerCourse(trainer, course)
+    }
 }
 
 
@@ -622,6 +680,8 @@ function validateFormAssignmentsPerCourses() {
 
     let assignment;
     let course;
+
+    let bool = true;
     switch (assignmentid) {
         case '1':
             assignment = assignment1;
@@ -631,6 +691,10 @@ function validateFormAssignmentsPerCourses() {
             break;
         case '3':
             assignment = assignment3;
+            break;
+        default:
+            bool = false;
+            alert("You  must select from the available id's of assignments table.");
             break;
     }
     switch (courseid) {
@@ -643,9 +707,14 @@ function validateFormAssignmentsPerCourses() {
         case '3':
             course = course3;
             break;
+        default:
+            bool = false;
+            alert("You  must select from the available id's of courses table.");
+            break;
     }
-
-    addHtmlTableAssignmentssPerCourse(assignment, course)
+    if(bool == true){ 
+        addHtmlTableAssignmentssPerCourse(assignment, course)
+    }
 }
 
 function addHtmlTableAssignmentssPerCourse(assignment, course1) {
@@ -668,13 +737,21 @@ function addHtmlTableAssignmentssPerCourse(assignment, course1) {
 }
 
 function updateFormAssignmentsPerCourse() {
+    let bool = true;
     let updaterow = document.getElementById("updaterow").value;
-
+    updaterow = updaterow - 1;
+    var table1 = document.getElementById("myTableAssignments");
+    
+    if(updaterow>table1.rows.length || updaterow<0){
+        bool = false;
+        alert("You must select a row that exists from table.");
+    }
     let ucourseid = document.getElementById("updatecourseid").value;
     let uassignmentid = document.getElementById("updateassignmentid").value;
 
     let assignment;
     let course;
+    
     switch (ucourseid) {
         case '1':
             course = course1;
@@ -684,6 +761,10 @@ function updateFormAssignmentsPerCourse() {
             break;
         case '3':
             course = course3;
+            break;
+        default:
+            bool = false;
+            alert("You  must select from the available id's of courses table.");
             break;
     }
     switch (uassignmentid) {
@@ -696,10 +777,16 @@ function updateFormAssignmentsPerCourse() {
         case '3':
             assignment = assignment3;
             break;
+        default:
+            bool = false;
+            alert("You  must select from the available id's of assignments table.");
+            break;
 
     }
-    document.getElementById("myTableAssignments").deleteRow(updaterow);
-    addHtmlTableAssignmentssPerCourse(assignment, course)
+    if(bool == true){ 
+        document.getElementById("myTableAssignments").deleteRow(updaterow);
+        addHtmlTableAssignmentssPerCourse(assignment, course)
+    }
 
 }
 
@@ -715,6 +802,8 @@ function validateFormAssignmentsPerStudentPerCourse() {
 
 
     let assignment;
+    let bool =true;
+
     switch (assignmentid) {
         case '1':
             assignment = assignment1;
@@ -724,6 +813,10 @@ function validateFormAssignmentsPerStudentPerCourse() {
             break;
         case '3':
             assignment = assignment3;
+            break;
+        default:
+            bool = false;
+            alert("You  must select from the available id's of assignments table.");
             break;
     }
     switch (studentid) {
@@ -736,6 +829,10 @@ function validateFormAssignmentsPerStudentPerCourse() {
         case '3':
             student = student3;
             break;
+        default:
+            bool = false;
+            alert("You  must select from the available id's of student table.");
+            break;
     }
     switch (courseid) {
         case '1':
@@ -747,8 +844,14 @@ function validateFormAssignmentsPerStudentPerCourse() {
         case '3':
             course = course3;
             break;
+        default:
+            bool = false;
+            alert("You  must select from the available id's of courses table.");
+            break;
     }
-    addHtmlTableAssignmentssPerCoursePerStudent(assignment, student, course)
+    if(bool == true){   
+        addHtmlTableAssignmentssPerCoursePerStudent(assignment, student, course)
+    }
 }
 
 function addHtmlTableAssignmentssPerCoursePerStudent(assignment, student, course) {
@@ -779,8 +882,15 @@ function addHtmlTableAssignmentssPerCoursePerStudent(assignment, student, course
 }
 
 function updateAssignmentssPerCoursePerStudent() {
+    let bool = true;
     let updaterow = document.getElementById("updaterow").value;
-
+    updaterow = updaterow - 1;
+    var table1 = document.getElementById("myTableAssignmentsPerCoursePerStudent");
+    
+    if(updaterow>table1.rows.length || updaterow<0){
+        bool = false;
+        alert("You must select a row that exists from table.");
+    }
     let ucourseid = document.getElementById("updatecourseid").value;
     let ustudentid = document.getElementById("updatestudentid").value;
     let uassignmentid = document.getElementById("updateassignmentid").value;
@@ -798,6 +908,10 @@ function updateAssignmentssPerCoursePerStudent() {
         case '3':
             uassignment = assignment3;
             break;
+        default:
+                bool = false;
+                alert("You  must select from the available id's of assignments table.");
+                break;
     }
     switch (ustudentid) {
         case '1':
@@ -808,6 +922,10 @@ function updateAssignmentssPerCoursePerStudent() {
             break;
         case '3':
             ustudent = student3;
+            break;
+        default:
+            bool = false;
+            alert("You  must select from the available id's of student table.");
             break;
     }
     switch (ucourseid) {
@@ -820,9 +938,14 @@ function updateAssignmentssPerCoursePerStudent() {
         case '3':
             ucourse = course3;
             break;
+        default:
+            bool = false;
+            alert("You  must select from the available id's of courses table.");
+            break;
     }
-    
-    document.getElementById("myTableAssignmentsPerCoursePerStudent").deleteRow(updaterow);
-    addHtmlTableAssignmentssPerCoursePerStudent(uassignment, ustudent, ucourse)
+    if(bool== true){  
+        document.getElementById("myTableAssignmentsPerCoursePerStudent").deleteRow(updaterow);
+        addHtmlTableAssignmentssPerCoursePerStudent(uassignment, ustudent, ucourse)
+    }
 
 }
