@@ -62,7 +62,7 @@
                 <h2>Assign Assignments Per Courses</h2>
                 <form name="myForm">
                     <div class="form-group">
-                        <input type="number" class="form-control" id="studentid" placeholder="Assignment Id" name="tname"
+                        <input type="number" class="form-control" id="assignmentid" placeholder="Assignment Id" name="tname"
                             autocomplete="off">
                     </div>
                     <div class="form-group">
@@ -71,7 +71,7 @@
                             autocomplete="off">
                     </div>
                 </form>
-                <button type="submit" onclick="validateForm()" class="btn btn-primary">Add Assignments Per Course</button>
+                <button type="submit" onclick="validateFormAssignmentsPerCourses()" class="btn btn-primary">Add Assignments Per Course</button>
             </div>
             <div class="col">
                 <table class="table">
@@ -145,7 +145,7 @@
                         <th scope="col">Type</th>
                     </tr>
                 </thead>
-                <tbody class="tbody-light" id="myTable">
+                <tbody class="tbody-light" id="myTableAssignments">
                     <tr>
                         <td>1</td>
                         <td>Assignment1</td>
@@ -171,11 +171,11 @@
                     </div>
 
                     <div class="col-auto">
-                        <input type="number" class="form-control mb-2" id="updatestudentid" placeholder="Assignmentid">
+                        <input type="number" class="form-control mb-2" id="updateassignmentid" placeholder="Assignmentid">
                     </div>
 
                 </div>
-                <button type="submit" onclick="updatevalues()" id="disappearupdate"
+                <button type="submit" onclick="updateFormAssignmentsPerCourse()" id="disappearupdate"
                     class="btn btn-primary">Update</button>
             </div>
 
