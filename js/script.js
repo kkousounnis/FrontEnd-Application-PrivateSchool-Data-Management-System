@@ -702,3 +702,78 @@ function updateFormAssignmentsPerCourse() {
     addHtmlTableAssignmentssPerCourse(assignment, course)
 
 }
+
+// ------------------------AssignmentsspercourseperStudent----------------------------------
+
+function validateFormAssignmentsPerStudentPerCourse() {
+    let studentid = document.getElementById("studentid").value;
+    let courseid = document.getElementById("courseid").value;
+    let assignmentid = document.getElementById("assignmentid").value;
+
+    let student;
+    let course;
+
+
+    let assignment;
+    switch (assignmentid) {
+        case '1':
+            assignment = assignment1;
+            break;
+        case '2':
+            assignment = assignment2;
+            break;
+        case '3':
+            assignment = assignment3;
+            break;
+    }
+    switch (studentid) {
+        case '1':
+            student = student1;
+            break;
+        case '2':
+            student = student2;
+            break;
+        case '3':
+            student = student3;
+            break;
+    }
+    switch (courseid) {
+        case '1':
+            course = course1;
+            break;
+        case '2':
+            course = course2;
+            break;
+        case '3':
+            course = course3;
+            break;
+    }
+    addHtmlTableAssignmentssPerCoursePerStudent(assignment, student, course)
+}
+
+function addHtmlTableAssignmentssPerCoursePerStudent(assignment, student, course) {
+    var table = document.getElementById("myTableAssignmentsPerCoursePerStudent");
+
+    var row = table.insertRow(0);
+
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
+    var cell6 = row.insertCell(5);
+    var cell7 = row.insertCell(6);
+    var cell8 = row.insertCell(7);
+    var cell9 = row.insertCell(8);
+
+    
+    cell1.innerHTML = student.studentid;
+    cell2.innerHTML = student.firstname;
+    cell3.innerHTML = student.lastname;
+    cell4.innerHTML = course.courseid;
+    cell5.innerHTML = course.titlename;
+    cell6.innerHTML = course.stream;
+    cell7.innerHTML = course.type;
+    cell8.innerHTML = assignment.assignmentid;
+    cell9.innerHTML = assignment.title;
+}
