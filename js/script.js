@@ -777,3 +777,52 @@ function addHtmlTableAssignmentssPerCoursePerStudent(assignment, student, course
     cell8.innerHTML = assignment.assignmentid;
     cell9.innerHTML = assignment.title;
 }
+
+function updateAssignmentssPerCoursePerStudent() {
+    let updaterow = document.getElementById("updaterow").value;
+
+    let ucourseid = document.getElementById("updatecourseid").value;
+    let ustudentid = document.getElementById("updatestudentid").value;
+    let uassignmentid = document.getElementById("updateassignmentid").value;
+
+    let ustudent;
+    let ucourse;
+    let uassignment;
+    switch (uassignmentid) {
+        case '1':
+            uassignment = assignment1;
+            break;
+        case '2':
+            uassignment = assignment2;
+            break;
+        case '3':
+            uassignment = assignment3;
+            break;
+    }
+    switch (ustudentid) {
+        case '1':
+            ustudent = student1;
+            break;
+        case '2':
+            ustudent = student2;
+            break;
+        case '3':
+            ustudent = student3;
+            break;
+    }
+    switch (ucourseid) {
+        case '1':
+            ucourse = course1;
+            break;
+        case '2':
+            ucourse = course2;
+            break;
+        case '3':
+            ucourse = course3;
+            break;
+    }
+    
+    document.getElementById("myTableAssignmentsPerCoursePerStudent").deleteRow(updaterow);
+    addHtmlTableAssignmentssPerCoursePerStudent(uassignment, ustudent, ucourse)
+
+}
