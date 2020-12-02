@@ -119,7 +119,7 @@
     <!-- </section> -->
 
     <!-- <section id="courses" class="jumbotron text-center text-white"> -->
-    <div id="courses" class="container-fluid jumbotron text-center">
+    <div id="courses" class="container-fluid jumbotron text-center text-white">
         <h2>Add Courses</h2>
         <form name="myForm">
             <div class="form-group">
@@ -138,12 +138,12 @@
                 </select>
             </div>
             <div class="form-group">
-                <label>Start Date</label>
-                <input type="date" class="form-control" id="startdate" name="startdate" autocomplete="off">
+                <label >Start Date</label>
+                <input type="date" class="form-control" id="startdate" name="startdate" autocomplete="off" required>
             </div>
             <div class="form-group">
-                <label>End Date</label>
-                <input type="date" class="form-control" id="enddate" name="enddate" autocomplete="off">
+                <label >End Date</label>
+                <input type="date" class="form-control" id="enddate" name="enddate" autocomplete="off" required>
             </div>
 
         </form>
@@ -195,27 +195,30 @@
                 <div class="form-row align-items-center">
 
                     <div class="col-auto">
-                        <input type="number" class="form-control mb-2" id="updaterow" placeholder="Specify Row">
+                        <input type="number" class="form-control mb-2" id="updaterow" placeholder="Specify Row" autocomplete="off">
                     </div>
 
                     <div class="col-auto">
-                        <input type="text" class="form-control mb-2" id="updatetitlename" placeholder="Titlename">
+                        <input type="text" class="form-control mb-2" id="updatetitlename" placeholder="Titlename" autocomplete="off">
                     </div>
 
                     <div class="col-auto">
-                        <input type="text" class="form-control mb-2" id="updatestream" placeholder="Stream">
+                        <input type="text" class="form-control mb-2" id="updatestream" placeholder="Stream" autocomplete="off">
+                    </div>
+
+                    <div class="col-auto">                        
+                        <select class="form-control mb-2" id="updatetype">
+                            <option>Fulltime</option>
+                            <option>Parttime</option>
+                        </select>
                     </div>
 
                     <div class="col-auto">
-                        <input type="text" class="form-control mb-2" id="updatetype" placeholder="Type">
+                        <input type="date" class="form-control mb-2" id="updatestartdate" required>
                     </div>
 
                     <div class="col-auto">
-                        <input type="date" class="form-control mb-2" id="updatestartdate">
-                    </div>
-
-                    <div class="col-auto">
-                        <input type="date" class="form-control mb-2" id="updateenddate">
+                        <input type="date" class="form-control mb-2" id="updateenddate" required>
                     </div>
 
                 </div>
@@ -228,7 +231,7 @@
     <!-- </section> -->
 
     <!-- <section id="students" class="jumbotron text-center text-white"> -->
-    <div id="students" class="container-fluid jumbotron text-center">
+    <div id="students" class="container-fluid jumbotron text-center text-white">
         <h2>Add Students</h2>
         <form name="myForm">
             <div class="form-group">
@@ -240,9 +243,11 @@
                     autocomplete="off">
             </div>
             <div class="form-group">
+                <label >Date of Birth</label>
                 <input type="date" class="form-control" id="dateofbirth" name="dateofbirth" autocomplete="off">
             </div>
             <div class="form-group">
+                <label >Tuition Fees</label>
                 <input type="number" class="form-control" id="tuitionfees" name="tuitionfees" autocomplete="off">
             </div>
 
@@ -322,7 +327,7 @@
     <!-- </section> -->
 
     <!-- <section id="trainers" class="jumbotron text-center text-white"> -->
-    <div id="trainers" class="container-fluid jumbotron text-center">
+    <div id="trainers" class="container-fluid jumbotron text-center text-white">
         <h2>Add Trainers</h2>
         <form name="myForm">
             <div class="form-group">
@@ -405,7 +410,7 @@
     <!-- </section> -->
 
     <!-- <section id="assignments" class="jumbotron text-center text-white"> -->
-    <div id="assignments" class="container-fluid jumbotron text-center">
+    <div id="assignments" class="container-fluid jumbotron text-center text-white">
         <h2>Add Assignments</h2>
         <form name="myForm">
             <div class="form-group">
@@ -417,12 +422,15 @@
                     autocomplete="off">
             </div>
             <div class="form-group">
+                <label >Submission Date</label>
                 <input type="date" class="form-control" id="subdatetime" name="subdatetime" autocomplete="off">
             </div>
             <div class="form-group">
+                <label >Oral Mark</label>
                 <input type="number" class="form-control" id="oralmark" name="oralmark" autocomplete="off">
             </div>
             <div class="form-group">
+                <label >Total Mark</label>
                 <input type="number" class="form-control" id="totalmark" name="totalmark" autocomplete="off">
             </div>
         </form>

@@ -16,7 +16,12 @@ function validateForm() {
     let bool = true;
     if (titlename == "") {
         alert("Title must be filled out.");
-        bool = true;
+        bool = false;
+        return false;
+    }
+    if (titlename.length > 30) {
+        alert("Title must have max length of 30 characters.");
+        bool = false;
         return false;
     }
     if (stream == "") {
@@ -24,14 +29,25 @@ function validateForm() {
         bool = false;
         return false;
     }
-
-    if (type == "") {
+    if (stream.length > 30) {
+        alert("Stream must have max length of 30 characters.");
         bool = false;
-        alert("Type must be filled out.")
+        return false;
     }
+    if (startdate == "") {
+        alert("Start date must be filled out.");
+        bool = false;
+        return false;
+    }
+    if (enddate == "") {
+        alert("End date must be filled out.");
+        bool = false;
+        return false;
+    }
+
     if (startdate >= enddate) {
         bool = false;
-        alert("Enddate must come after startdate.")
+        alert("End date must come after startdate.")
     }
     if (bool == true) {
         this.addHtmlTable(new course(titlename, stream, type, startdate, enddate));
@@ -59,7 +75,16 @@ function addHtmlTable(course) {
 }
 
 function updatevalues() {
+    let bool = true;
     let updaterow = document.getElementById("updaterow").value;
+    updaterow = updaterow - 1;
+    var table1 = document.getElementById("myTable");
+
+    if (updaterow > table1.rows.length || updaterow < 0) {
+        bool = false;
+        alert("You must select a row that exists from table.");
+    }
+
     let updatetitlename = document.getElementById("updatetitlename").value;
     let updatestream = document.getElementById("updatestream").value;
     let updatetype = document.getElementById("updatetype").value;
@@ -67,25 +92,41 @@ function updatevalues() {
     let updateenddate = document.getElementById("updateenddate").value;
 
 
-    let bool = true;
-    if (course.titlename == "") {
+
+    if (updatetitlename == "") {
         alert("Title must be filled out.");
-        bool = true;
+        bool = false;
         return false;
     }
-    if (course.stream == "") {
+    if (updatetitlename.length > 30) {
+        alert("Title must have max length of 30 characters.");
+        bool = false;
+        return false;
+    }
+    if (updatestream == "") {
         alert("Stream must be filled out.");
         bool = false;
         return false;
     }
-
-    if (course.type == "") {
+    if (updatestream.length > 30) {
+        alert("Stream must have max length of 30 characters.");
         bool = false;
-        alert("Type must be filled out.")
+        return false;
     }
-    if ((course.startdate >= course.enddate) == true) {
+    if (updatestartdate == "") {
+        alert("Start date must be filled out.");
         bool = false;
-        alert("Enddate must come after startdate.")
+        return false;
+    }
+    if (updateenddate == "") {
+        alert("End date must be filled out.");
+        bool = false;
+        return false;
+    }
+
+    if (updatestartdate >= updateenddate) {
+        bool = false;
+        alert("End date must come after startdate.")
     }
     if (bool == true) {
         document.getElementById("myTable").deleteRow(updaterow);
@@ -143,11 +184,31 @@ function validateFormstudents() {
     let bool = true;
     if (firstname == "") {
         alert("First name must be filled out.");
-        bool = true;
+        bool = false;
+        return false;
+    }
+    if (firstname.length >= 30) {
+        alert("First name must have max length 30 characters");
+        bool = false;
         return false;
     }
     if (lastname == "") {
         alert("Last name must be filled out.");
+        bool = false;
+        return false;
+    }
+    if (lastname.length >= 30) {
+        alert("Last name must have max length 30 characters");
+        bool = false;
+        return false;
+    }
+    if (tuitionfees < 0 || tuitionfees > 1000000) {
+        alert("Tuition fees can't take a negative number neither can be more than 1000000");
+        bool = false;
+        return false;
+    }
+    if (dateofbirth == "") {
+        alert("Date of birth must be filled out.");
         bool = false;
         return false;
     }
@@ -174,20 +235,47 @@ function addHtmlTableStudent(firstname, lastname, dateofbirth, tuitionfees) {
 }
 
 function updatevaluesstudent() {
+    let bool = true;
     let updaterowstudent = document.getElementById("updaterowstudent").value;
+    updaterowstudent = updaterowstudent - 1;
+    var table1 = document.getElementById("mytablestudents");
 
+    if (updaterowstudent > table1.rows.length || updaterowstudent < 0) {
+        bool = false;
+        alert("You must select a row that exists from table.");
+    }
     let firstname1 = document.getElementById("updatefirstnamestudent").value;
     let lastname1 = document.getElementById("updatelastnamestudent").value;
     let dateofbirth1 = document.getElementById("updatedateofbirthstudent").value;
     let tuitionfees1 = document.getElementById("tuitionfeesstudent").value;
-    let bool = true;
+
     if (firstname1 == "") {
         alert("First name must be filled out.");
-        bool = true;
+        bool = false;
+        return false;
+    }
+    if (firstname1.length >= 30) {
+        alert("First name must have max length 30 characters");
+        bool = false;
         return false;
     }
     if (lastname1 == "") {
         alert("Last name must be filled out.");
+        bool = false;
+        return false;
+    }
+    if (lastname1.length >= 30) {
+        alert("Last name must have max length 30 characters");
+        bool = false;
+        return false;
+    }
+    if (tuitionfees1 < 0 || tuitionfees1 > 1000000) {
+        alert("Tuition fees can't take a negative number neither can be more than 1000000");
+        bool = false;
+        return false;
+    }
+    if (dateofbirth1 == "") {
+        alert("Date of birth must be filled out.");
         bool = false;
         return false;
     }
@@ -226,14 +314,29 @@ function validateFormtrainers() {
         bool = true;
         return false;
     }
+    if (firstnametrainer.length >= 30) {
+        alert("First name must have max length 30.");
+        bool = true;
+        return false;
+    }
     if (lastnametrainer == "") {
         alert("Last name must be filled out.");
         bool = false;
         return false;
     }
+    if (lastnametrainer.length >= 30) {
+        alert("Last name must have max length 30.");
+        bool = true;
+        return false;
+    }
     if (subject == "") {
         alert("Subject must be filled out.");
         bool = false;
+        return false;
+    }
+    if (subject.length >= 100) {
+        alert("Subject can have max length 100.");
+        bool = true;
         return false;
     }
 
@@ -257,15 +360,27 @@ function addHtmlTabletrainers(firstnametrainer, lastnametrainer, subject) {
 }
 
 function updatevaluestrainers() {
+    let bool = true;
     let updaterowtrainer = document.getElementById("updaterowtrainer").value;
+    updaterowtrainer = updaterowtrainer - 1;
+    var table1 = document.getElementById("mytabletrainers");
 
+    if (updaterowtrainer > table1.rows.length || updaterowtrainer < 0) {
+        bool = false;
+        alert("You must select a row that exists from table.");
+    }
     let ufirstnamestudent = document.getElementById("updatefirstnametrainer").value;
     let ulastnamestudent = document.getElementById("updatelastnametrainer").value;
-    let udateofbirthstudent = document.getElementById("updatesubjecttrainer").value;
+    let usubject = document.getElementById("updatesubjecttrainer").value;
 
-    let bool = true;
+
     if (ufirstnamestudent == "") {
         alert("First name must be filled out.");
+        bool = true;
+        return false;
+    }
+    if (ufirstnamestudent.length >= 30) {
+        alert("First name must have max length 30.");
         bool = true;
         return false;
     }
@@ -274,11 +389,24 @@ function updatevaluestrainers() {
         bool = false;
         return false;
     }
-
-
+    if (ulastnamestudent.length >= 30) {
+        alert("Last name must have max length 30.");
+        bool = true;
+        return false;
+    }
+    if (usubject == "") {
+        alert("Subject must be filled out.");
+        bool = false;
+        return false;
+    }
+    if (usubject.length >= 100) {
+        alert("Subject can have max length 100.");
+        bool = true;
+        return false;
+    }
     if (bool == true) {
         document.getElementById("mytabletrainers").deleteRow(updaterowtrainer);
-        this.addHtmlTabletrainers(ufirstnamestudent, ulastnamestudent, udateofbirthstudent);
+        this.addHtmlTabletrainers(ufirstnamestudent, ulastnamestudent, usubject);
     }
 
 }
@@ -306,13 +434,38 @@ function validateFormAssignments() {
     let oralmark = document.getElementById("oralmark").value;
     let totalmark = document.getElementById("totalmark").value;
     let bool = true;
-    if (firstname == "") {
-        alert("First name must be filled out.");
+    if (title == "") {
+        alert("Title of assignment must be filled out.");
         bool = true;
         return false;
     }
-    if (lastname == "") {
-        alert("Last name must be filled out.");
+    if (title.length >= 30) {
+        alert("Title name must have max length 30.");
+        bool = true;
+        return false;
+    }
+    if (description == "") {
+        alert("Description must be filled out.");
+        bool = false;
+        return false;
+    }
+    if (description.length >= 100) {
+        alert("Description can have max length 100.");
+        bool = true;
+        return false;
+    }
+    if (subdatetime == "") {
+        alert("Submision date must be filled out.");
+        bool = false;
+        return false;
+    }
+    if (oralmark < 0) {
+        alert("Oral mark can't take negative values.");
+        bool = false;
+        return false;
+    }
+    if (totalmark < 0) {
+        alert("Total mark can't take negative values.");
         bool = false;
         return false;
     }
@@ -342,24 +495,57 @@ function addHtmlTableAssignments(title, description, subdatetime, oralmark, tota
 }
 
 function updatevaluesAssignments() {
+    let bool = true;
     let updaterowassignment = document.getElementById("updaterowassignment").value;
+    updaterowassignment = updaterowassignment - 1;
+    var table1 = document.getElementById("mytableassignments");
 
+    if (updaterowassignment > table1.rows.length || updaterowassignment < 0) {
+        bool = false;
+        alert("You must select a row that exists from table.");
+    }
     let utitle = document.getElementById("updatetitle").value;
     let udescription = document.getElementById("updatedescription").value;
     let usubdatetime = document.getElementById("updatedatesubdatetime").value;
     let uoralmark = document.getElementById("updateoralmark").value;
     let utotalmark = document.getElementById("updatetotalmark").value;
-    let bool = true;
+    
     if (utitle == "") {
-        alert("First name must be filled out.");
+        alert("Title of assignment must be filled out.");
+        bool = true;
+        return false;
+    }
+    if (utitle.length >= 30) {
+        alert("Title name must have max length 30.");
         bool = true;
         return false;
     }
     if (udescription == "") {
-        alert("Last name must be filled out.");
+        alert("Description must be filled out.");
         bool = false;
         return false;
     }
+    if (udescription.length >= 100) {
+        alert("Description can have max length 100.");
+        bool = true;
+        return false;
+    }
+    if (usubdatetime == "") {
+        alert("Submision date must be filled out.");
+        bool = false;
+        return false;
+    }
+    if (uoralmark < 0) {
+        alert("Oral mark can't take negative values.");
+        bool = false;
+        return false;
+    }
+    if (utotalmark < 0) {
+        alert("Total mark can't take negative values.");
+        bool = false;
+        return false;
+    }
+
 
     if (bool == true) {
         document.getElementById("mytableassignments").deleteRow(updaterowassignment);
@@ -470,7 +656,7 @@ function validateFormStudentPerCourses() {
             alert("You  must select from the available id's of courses table.");
             break;
     }
-    if(bool == true){ 
+    if (bool == true) {
         addHtmlTableStudentsPerCourse(student, course);
     }
 }
@@ -501,7 +687,7 @@ function updateFormStudentPerCourses() {
     let updaterow = document.getElementById("updaterow").value;
     updaterow = updaterow - 1;
     var table = document.getElementById("myTableStudentsPerCourse");
-    if(updaterow>table.rows.length || updaterow<0){
+    if (updaterow > table.rows.length || updaterow < 0) {
         bool = false;
         alert("You must select a row that exists from table.");
     }
@@ -512,7 +698,7 @@ function updateFormStudentPerCourses() {
     let ustudent;
     let ucourse;
 
-    
+
     switch (ustudentid) {
         case '1':
             ustudent = student1;
@@ -544,7 +730,7 @@ function updateFormStudentPerCourses() {
             alert("You  must select from the available id's of courses table.");
             break;
     }
-    if(bool == true){ 
+    if (bool == true) {
         document.getElementById("myTableStudentsPerCourse").deleteRow(updaterow);
         addHtmlTableStudentsPerCourse(ustudent, ucourse)
     }
@@ -591,7 +777,7 @@ function validateFormTrainersPerCourses() {
             alert("You  must select from the available id's of courses table.");
             break;
     }
-    if(bool == true){ 
+    if (bool == true) {
         addHtmlTableTrainersPerCourse(trainer, course)
     }
 }
@@ -620,11 +806,11 @@ function addHtmlTableTrainersPerCourse(trainer, course1) {
 function updateFormTrainersPerCourse() {
     let bool = true;
     let updaterow = document.getElementById("updaterow").value;
-    
+
     updaterow = updaterow - 1;
     var table1 = document.getElementById("myTableTrainers");
-    
-    if(updaterow>table1.rows.length || updaterow<0){
+
+    if (updaterow > table1.rows.length || updaterow < 0) {
         bool = false;
         alert("You must select a row that exists from table.");
     }
@@ -633,7 +819,7 @@ function updateFormTrainersPerCourse() {
 
     let student;
     let course;
-    
+
 
     switch (ucourseid) {
         case '1':
@@ -665,7 +851,7 @@ function updateFormTrainersPerCourse() {
             alert("You  must select from the available id's of trainers table.");
             break;
     }
-    if(bool == true){ 
+    if (bool == true) {
         document.getElementById("myTableTrainers").deleteRow(updaterow);
         addHtmlTableTrainersPerCourse(trainer, course)
     }
@@ -712,7 +898,7 @@ function validateFormAssignmentsPerCourses() {
             alert("You  must select from the available id's of courses table.");
             break;
     }
-    if(bool == true){ 
+    if (bool == true) {
         addHtmlTableAssignmentssPerCourse(assignment, course)
     }
 }
@@ -726,7 +912,7 @@ function addHtmlTableAssignmentssPerCourse(assignment, course1) {
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
     var cell5 = row.insertCell(4);
-    var cell6 = row.insertCell(5); 
+    var cell6 = row.insertCell(5);
 
     cell1.innerHTML = assignment.assignmentid;
     cell2.innerHTML = assignment.title;
@@ -741,8 +927,8 @@ function updateFormAssignmentsPerCourse() {
     let updaterow = document.getElementById("updaterow").value;
     updaterow = updaterow - 1;
     var table1 = document.getElementById("myTableAssignments");
-    
-    if(updaterow>table1.rows.length || updaterow<0){
+
+    if (updaterow > table1.rows.length || updaterow < 0) {
         bool = false;
         alert("You must select a row that exists from table.");
     }
@@ -751,7 +937,7 @@ function updateFormAssignmentsPerCourse() {
 
     let assignment;
     let course;
-    
+
     switch (ucourseid) {
         case '1':
             course = course1;
@@ -783,7 +969,7 @@ function updateFormAssignmentsPerCourse() {
             break;
 
     }
-    if(bool == true){ 
+    if (bool == true) {
         document.getElementById("myTableAssignments").deleteRow(updaterow);
         addHtmlTableAssignmentssPerCourse(assignment, course)
     }
@@ -802,7 +988,7 @@ function validateFormAssignmentsPerStudentPerCourse() {
 
 
     let assignment;
-    let bool =true;
+    let bool = true;
 
     switch (assignmentid) {
         case '1':
@@ -849,7 +1035,7 @@ function validateFormAssignmentsPerStudentPerCourse() {
             alert("You  must select from the available id's of courses table.");
             break;
     }
-    if(bool == true){   
+    if (bool == true) {
         addHtmlTableAssignmentssPerCoursePerStudent(assignment, student, course)
     }
 }
@@ -869,7 +1055,7 @@ function addHtmlTableAssignmentssPerCoursePerStudent(assignment, student, course
     var cell8 = row.insertCell(7);
     var cell9 = row.insertCell(8);
 
-    
+
     cell1.innerHTML = student.studentid;
     cell2.innerHTML = student.firstname;
     cell3.innerHTML = student.lastname;
@@ -886,8 +1072,8 @@ function updateAssignmentssPerCoursePerStudent() {
     let updaterow = document.getElementById("updaterow").value;
     updaterow = updaterow - 1;
     var table1 = document.getElementById("myTableAssignmentsPerCoursePerStudent");
-    
-    if(updaterow>table1.rows.length || updaterow<0){
+
+    if (updaterow > table1.rows.length || updaterow < 0) {
         bool = false;
         alert("You must select a row that exists from table.");
     }
@@ -909,9 +1095,9 @@ function updateAssignmentssPerCoursePerStudent() {
             uassignment = assignment3;
             break;
         default:
-                bool = false;
-                alert("You  must select from the available id's of assignments table.");
-                break;
+            bool = false;
+            alert("You  must select from the available id's of assignments table.");
+            break;
     }
     switch (ustudentid) {
         case '1':
@@ -943,7 +1129,7 @@ function updateAssignmentssPerCoursePerStudent() {
             alert("You  must select from the available id's of courses table.");
             break;
     }
-    if(bool== true){  
+    if (bool == true) {
         document.getElementById("myTableAssignmentsPerCoursePerStudent").deleteRow(updaterow);
         addHtmlTableAssignmentssPerCoursePerStudent(uassignment, ustudent, ucourse)
     }
